@@ -30,7 +30,8 @@ class Post(models.Model):
     created = models.DateTimeField(verbose_name=_("Created"), auto_now=True)
     updated = models.DateTimeField(verbose_name=_("Updated"), auto_now=True)
     image = models.ImageField(verbose_name=_("Image"), upload_to="Post")
-    blog = models.ForeignKey('Blog', verbose_name=_("Blog"), on_delete=models.CASCADE)
+    blog = models.ForeignKey('Blog', verbose_name=_("Blog"), on_delete=models.CASCADE, related_name="posts")
+
 
     def __str__(self):
         return self.title
